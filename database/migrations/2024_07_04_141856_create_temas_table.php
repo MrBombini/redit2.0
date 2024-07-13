@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('temas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('cuerpo');
             $table->timestamps();
+            $table->unsignedBigInteger('usuario');
+            $table->unsignedBigInteger('categoria');
+            $table->foreign('usuario')->references('id')->on('usuarios');
+            $table->foreign('categoria')->references('id')->on('categorias');
         });
     }
 
