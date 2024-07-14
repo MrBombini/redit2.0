@@ -55,8 +55,10 @@ class RespuestaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Respuesta $respuesta)
+    public function destroy(int $id)
     {
-        //
+        $respuesta = Respuesta::find($id);
+        $respuesta->delete();
+        return response()->json(["message"=>"se elimino correctam"]);
     }
 }

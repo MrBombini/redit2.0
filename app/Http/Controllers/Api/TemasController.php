@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Tema;
 use Illuminate\Http\Request;
-use Ramsey\Uuid\Type\Integer;
+
 
 class TemasController extends Controller
 {
@@ -48,7 +48,7 @@ class TemasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Integer $id)
+    public function update(Request $request,int $id)
     {
         $tema = Tema::find($id);
         $tema->nombre = $request->nombre;
@@ -62,7 +62,7 @@ class TemasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Integer $id)
+    public function destroy(int $id)
     {
         $tema = Tema::find($id);
         $tema->delete();
